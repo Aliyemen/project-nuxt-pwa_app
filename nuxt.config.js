@@ -56,25 +56,36 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    meta:[
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: 'usuários github' },
+      { name: 'format-detection', content: 'telephone=no' },
+
+    ],
     icon: [
       {
         src: "icon.png",
         sizes: "196x196",
         type: "image/png",
-        purpose: "any"
+        purpose: 'maskable'
       },
 
     ],
     theme_color: '#f2f5f7',
     manifest: {
-      name: 'app',
-      short_name:'app',
+      name: `app${ new Date().toLocaleDateString('pt-BR', {timeZone: 'UTC'})}`,
+      short_name:'app-1',
       lang: 'en',
       display: 'standalone',
       useWebmanifestExtension: true,
       cachingExtensions: '@/plugins/workbox-sync.js',
       enabled: true
     },
+    worbox:{
+      offlinePage : '/offline.html'
+
+    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

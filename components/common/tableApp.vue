@@ -5,7 +5,7 @@ v-data-table(
 			:items-per-page="perPage"
 			:page.sync="currentPage"
 			hide-default-footer
-		).tab-style-font.elevation-1
+		).tab-style-font.elevation-1.text-left
 	template( v-slot:item.avatar_url="{ item }")
 		v-avatar(size="32" color="primary").app--avatar
 			img(:src="item.avatar_url"  :alt='item.name')
@@ -44,12 +44,6 @@ export default {
 			type:Number,
 			default: 20,
 		},
-		headers:{
-			type:Array,
-			default(){
-				return []
-			}
-		},
 		filteredItems:{
 			type:Array,
 			default(){
@@ -70,7 +64,11 @@ export default {
 			set(newValue){
 				this.$emit('eventChangeModal',newValue)
 			}
-		}
+		},
+	headers () {
+		return this.getHeaderUsres
+	},	
+		
 
 	},
 	methods: {
