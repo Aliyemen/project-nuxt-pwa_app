@@ -1,8 +1,11 @@
+# project-nuxt-pwa
+# HELLO IN MY  CHALLENGE FOR LEARNING MORE 
+
 ![Isso é uma imagem](https://myoctocat.com/assets/images/base-octocat.svg)
 
-![Isso é uma imagem de analise ](https://repository-images.githubusercontent.com/500199022/40e2b0f1-379c-49e4-bc9e-a6ced619f160)
+![Isso é uma imagem de analise ](https://repository-images.githubusercontent.com/500199022/382c3c8a-60b1-4401-8f18-6ae19cabcf0e)
 
-# project-nuxt-pwa
+# INSTALL
 
 # WITH DOCKER
 
