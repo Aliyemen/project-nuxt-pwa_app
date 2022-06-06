@@ -11,10 +11,10 @@
 
 ## PRODUCTION
 ### FRIST TIME
-   docker-compose up --build
+    docker-compose up --build
 
  ### IF YOU GET BUILD JUST RUN
-   docker-compose up 
+    docker-compose up 
 
 
 
