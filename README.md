@@ -4,17 +4,17 @@
 
 ## DEVELOPMENT
 ### FRIST TIME
- $ docker-compose -f docker-compose.dev.yml up --build --force-recreate
+  docker-compose -f docker-compose.dev.yml up --build --force-recreate
 
  ### IF YOU GET BUILD JUST RUN
     docker-compose -f docker-compose.dev.yml up
 
 ## PRODUCTION
 ### FRIST TIME
- $  docker-compose up --build
+   docker-compose up --build
 
  ### IF YOU GET BUILD JUST RUN
- $ docker-compose up 
+   docker-compose up 
 
 
 
