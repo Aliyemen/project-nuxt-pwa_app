@@ -1,3 +1,7 @@
+![Isso é uma imagem](https://myoctocat.com/assets/images/base-octocat.svg)
+
+![Isso é uma imagem de analise ](https://repository-images.githubusercontent.com/500199022/40e2b0f1-379c-49e4-bc9e-a6ced619f160)
+
 # project-nuxt-pwa
 
 # WITH DOCKER
@@ -20,9 +24,7 @@
 
 # WITHOUT DOCKER 
 ## Build Setup
-![Isso é uma imagem](https://myoctocat.com/assets/images/base-octocat.svg)
 
-![Isso é uma imagem de analise ](https://repository-images.githubusercontent.com/500199022/40e2b0f1-379c-49e4-bc9e-a6ced619f160)
 
 ```bash
 # install dependencies
