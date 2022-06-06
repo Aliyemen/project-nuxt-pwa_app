@@ -1,7 +1,7 @@
 <template lang="pug">
 v-app(v-if="!loading" dark)
   v-app-bar(app)
-    v-btn( icon to="/")
+    v-btn( icon @click="refrech")
       v-icon mdi-refresh
     v-spacer 
     v-toolbar-title( justify="center" align="center" v-text="title")
@@ -15,7 +15,10 @@ v-app(v-if="!loading" dark)
 </template>
 
 <script>
+import usersMixin from "@/mixin/usersMixin" 
+
 export default {
+  mixins: [usersMixin],
   name: 'DefaultLayout',
   data() {
     return {
@@ -29,6 +32,13 @@ export default {
     })
     if(this.$nuxt.isOffline){
       this.$router.push('/offline')
+    }
+  },
+  methods:{
+    refrech(){
+      this.setSearch('')
+      this.getlistUsres()
+
     }
   }
   

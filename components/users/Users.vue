@@ -5,13 +5,15 @@ v-container.container-app
 			v-text-field(
 					type="text"
 					:label="lebalFilter" 
-					v-model="search"  append-icon="mdi-magnify" 
+					v-model="search"  
+					:append-icon="search !=''? 'mdi-close' : 'mdi-magnify' "
 					align-self,
 					background-color="#F7F8FA",
 					solo,
 					flat
 					full-width
 					dense
+					@click:append="appendIconCallback"
 					).font-size-api.mr-5
 	div.row.tab-style.mt-4(no-gutters)
 		div.col-md-12.col-sm-12
@@ -29,7 +31,7 @@ v-container.container-app
 					v-select(:items="pagesList"
 							v-model="perPage"
 							small
-							label="Itens da página").mt-9.tab-style-font.mr-5
+							label="Padrão as linhas na página").mt-9.tab-style-font.mr-5
 				div(v-if="pages > 0" ).col-md-10
 					v-pagination( 
 										v-model="currentPage"
@@ -67,7 +69,6 @@ export default {
 				filteredItems () {
 						if(!this.users || !this.users.length){
 							return []
-
 						}
 						if (this.search != "") {
 							return this.users.filter(item => {
@@ -84,17 +85,12 @@ export default {
 				eventChangeModal(event){
 					this.showModal= event
 				},
-				async getlistUsres() {
-					try {
-						let  { data }  = await this.requestApi('GET','users')
-						this.setUsers([...data])
-						
-					} catch (error) {
-						
-						console.log('error',error)
+				appendIconCallback (){
+					if (this.search != '') {
+						this.search =''
 					}
-
-			},
+				}
+			
 		}
 	
 }

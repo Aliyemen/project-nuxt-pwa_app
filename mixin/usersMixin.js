@@ -1,6 +1,8 @@
+import globalMixin from "@/mixin/globalMixin"
 import { mapGetters,  mapActions } from "vuex"
 
-const usersMixin =  {
+const usersMixin = {
+    mixins: [globalMixin],
     computed: {
         ...mapGetters({
             getSearch:"users/getSearch",
@@ -42,8 +44,17 @@ const usersMixin =  {
             setUsers:"users/setUsers",
             setUser:"users/setUser",
         }),
+        async getlistUsres() {
+            try {
+                let  { data }  = await this.requestApi('GET','users')
+                this.setUsers([...data])
+                
+            } catch (error) {
+                
+                console.log('error',error)
+            }
+        }
     }
-
 
 }
 export default usersMixin;
