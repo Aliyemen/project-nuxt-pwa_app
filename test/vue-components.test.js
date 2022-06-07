@@ -1,11 +1,16 @@
 // import { shallowMount } from '@vue/test-utils'
 import globalMixin from "@/mixin/globalMixin"
 import usersMixin from "@/mixin/usersMixin" 
-import Users from '@/components/users/Users'
-import User from '@/components/users/User'
-import offline from '@/page/offline'
+import Users from '@/components/template/UsersTemplate'
+import User from '@/components/template/UserTemplate'
+import offline from '@/components/template/offlineTemplate'
 
 import helpers from '~/utils/GeneralHelpers'
+
+
+const errorHandler = (err, vm, info) => {
+  expect(err).toBeInstanceOf(Error)
+}
 
 export const addVuetify = (context) => {
   context.vuetify = require('vuetify')
@@ -14,9 +19,6 @@ export const addVuetify = (context) => {
   context.vuetifyInstance = new context.vuetify()
 }
 
-export const addMixin = (context) => {
-  context.mixin = [globalMixin,usersMixin]
-}
 
 export const addVuex = (context) => {
   context.vuex = require('vuex')
@@ -56,7 +58,10 @@ export const bootstrapVueContext = (configureContext) => {
 
   jest.isolateModules(() => {
     context.vueTestUtils = require('@vue/test-utils')
-    context.vue = context.vueTestUtils.createLocalVue()
+    context.vue = context.vueTestUtils.createLocalVue({
+      errorHandler
+    })
+    context.vue.mixin([globalMixin,usersMixin])
 
     jest.doMock('vue', () => context.vue)
 
@@ -81,7 +86,7 @@ describe('App', () => {
 
   beforeEach(() => {
     vueContext = bootstrapVueContext(
-      compositeConfiguration(addVuex, addVuetify, addMixin, addHelpers())
+      compositeConfiguration(addVuex, addVuetify, addHelpers())
     )
   })
 
