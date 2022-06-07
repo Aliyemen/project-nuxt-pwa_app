@@ -14,7 +14,19 @@ v-container.container-app
 					full-width
 					dense
 					@click:append="appendIconCallback"
+					@change="findListAgaine"
 					).font-size-api.mr-5
+					//- :disabled="!editar"
+		div().d-flex.flex-colum.justify-end.ml-3.mr-6
+			v-btn(
+			outlined
+			color="primary"
+			height="40px"
+			:disabled="filteredItems.length > 0"
+			@click="serachUserApi(search)"
+			).border-opacity-btn
+				v-icon(left size="24px").mr-3 mdi-magnify
+				.text-subtitle-2 Buscar novamente
 	div.row.tab-style.mt-4(no-gutters)
 		div.col-md-12.col-sm-12
 			tableApp(
@@ -88,8 +100,17 @@ export default {
 				appendIconCallback (){
 					if (this.search != '') {
 						this.search =''
+						this.findListAgaine()
 					}
+				},
+				findListAgaine(){
+					let needCallAgin = [0,1]
+					if(this.search=='' && needCallAgin.includes(this.filteredItems.length)){
+						this.getlistUsres()
+					}
+
 				}
+				
 			
 		}
 	

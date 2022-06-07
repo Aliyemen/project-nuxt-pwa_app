@@ -53,8 +53,21 @@ const usersMixin = {
                 
                 console.log('error',error)
             }
+        },
+        async serachUserApi(search){
+            try {
+                let serachParam = search.replace(' ','').trim()
+                let  { data }  = await this.requestApi('GET',`users/${serachParam}`)
+                let users = []
+                users.push({...data})
+                this.setUsers([...users])
+                
+            } catch (error) {
+                
+                console.log('error',error)
+            }
         }
-    }
+    },
 
 }
 export default usersMixin;

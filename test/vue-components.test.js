@@ -1,9 +1,9 @@
 // import { shallowMount } from '@vue/test-utils'
 import globalMixin from "@/mixin/globalMixin"
 import usersMixin from "@/mixin/usersMixin" 
-import Users from '@/components/template/UsersTemplate'
-import User from '@/components/template/UserTemplate'
-import offline from '@/components/template/offlineTemplate'
+import UsersTemplate from '@/components/template/UsersTemplate'
+import UserTemplate from '@/components/template/UserTemplate'
+import offlineTemplate from '@/components/template/offlineTemplate'
 
 import helpers from '~/utils/GeneralHelpers'
 
@@ -95,7 +95,7 @@ describe('App', () => {
   })
 
   test('Test offline Component', () => {
-    const wrapper = vueContext.vueTestUtils.shallowMount(offline, {
+    const wrapper = vueContext.vueTestUtils.shallowMount(offlineTemplate, {
       localVue: vueContext.vue,
       vuetify: vueContext.vuetifyInstance
     })
@@ -104,7 +104,7 @@ describe('App', () => {
   })
 
   test('Test Vuetify Users Component', () => {
-    const wrapper = vueContext.vueTestUtils.shallowMount(Users, {
+    const wrapper = vueContext.vueTestUtils.shallowMount(UsersTemplate, {
       localVue: vueContext.vue,
       vuetify: vueContext.vuetifyInstance
     })
@@ -113,7 +113,7 @@ describe('App', () => {
   })
 
   test('Test User', () => {
-    const wrapper = vueContext.vueTestUtils.shallowMount(User, {
+    const wrapper = vueContext.vueTestUtils.shallowMount(UserTemplate, {
       localVue: vueContext.vue,
       vuetify: vueContext.vuetifyInstance
     })
