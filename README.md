@@ -24,7 +24,7 @@
     docker-compose up 
 
 
-## TEST UNITARIO
+## UNIT TEST
     docker-compose -f docker-compose.test.yml up
 
 # WITHOUT DOCKER 
