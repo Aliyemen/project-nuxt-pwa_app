@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/usr/src/app/
+    working_dir: /usr/src/app
+    ports:
+      - 3000:3000
+    networks:
+      - nuxt-network
+    command: ['yarn','test']
+networks:
+  nuxt-network: 
+    driver: bridge

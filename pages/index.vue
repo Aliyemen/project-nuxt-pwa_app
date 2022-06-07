@@ -9,5 +9,5 @@ v-row(justify="center" align="center")
 <script>
 export default {
   name: 'IndexPage',
-}
+};
 </script>

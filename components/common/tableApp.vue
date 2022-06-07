@@ -33,6 +33,7 @@ v-data-table(
 <script>
 import globalMixin from "@/mixin/globalMixin"
 import usersMixin from "@/mixin/usersMixin" 
+
 export default {
 	mixins: [globalMixin, usersMixin],
 	 props:{
@@ -81,5 +82,5 @@ export default {
 		},
 	}
 	
-}
+};
 </script>

@@ -24,6 +24,8 @@
     docker-compose up 
 
 
+## TEST UNITARIO
+    docker-compose -f docker-compose.test.yml up
 
 # WITHOUT DOCKER 
 ## Build Setup
@@ -39,6 +41,9 @@ $ yarn dev
 # for production generate static project
 $ yarn generate
 $ yarn start
+
+# for production generate static project
+$ yarn test
 
 ```
 
